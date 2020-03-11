@@ -24,5 +24,13 @@ public class Parole {
 	public void reset() {
 		parole.clear();
 	}
+	
+	public void rimuoviParola(String parola) {
+		for(String s:parole) {
+			if(s.equals(parola)) {
+				parole.remove(parola);
+			}
+		}
+	}
 
 }

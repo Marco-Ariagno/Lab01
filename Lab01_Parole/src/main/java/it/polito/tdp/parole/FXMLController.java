@@ -33,6 +33,20 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
+    
+    @FXML
+    private Button btnCancella;
+    
+    @FXML
+    void doCancella(ActionEvent event) {
+    	String str=txtResult.getSelectedText();
+    	elenco.rimuoviParola(str);
+    	LinkedList<String> parole=new LinkedList<String>(elenco.getElenco());
+    	txtResult.clear();
+    	for(String s:parole) {
+    		txtResult.appendText(s+"\n");
+    	}
+    }
 
     @FXML
     void doInsert(ActionEvent event) {
