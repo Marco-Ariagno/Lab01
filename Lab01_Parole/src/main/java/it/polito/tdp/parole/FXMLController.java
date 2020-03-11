@@ -38,7 +38,11 @@ public class FXMLController {
     private Button btnCancella;
     
     @FXML
+    private TextArea txtTempi;
+    
+    @FXML
     void doCancella(ActionEvent event) {
+    	double start=System.nanoTime();
     	String str=txtResult.getSelectedText();
     	elenco.rimuoviParola(str);
     	LinkedList<String> parole=new LinkedList<String>(elenco.getElenco());
@@ -46,10 +50,15 @@ public class FXMLController {
     	for(String s:parole) {
     		txtResult.appendText(s+"\n");
     	}
+    	double end=System.nanoTime();
+    	double time=end-start;
+    	String tempo=Double.toString(time);
+    	txtTempi.appendText(tempo+"\n");
     }
 
     @FXML
     void doInsert(ActionEvent event) {
+    	double start=System.nanoTime();
     	String parola=txtParola.getText();
     	elenco.addParola(parola);
     	LinkedList<String> parole=new LinkedList<String>(elenco.getElenco());
@@ -58,12 +67,21 @@ public class FXMLController {
     		txtResult.appendText(s+"\n");
     	}
     	txtParola.clear();
+    	double end=System.nanoTime();
+    	double time=end-start;
+    	String tempo=Double.toString(time);
+    	txtTempi.appendText(tempo+"\n");
     }
 
     @FXML
     void doReset(ActionEvent event) {
+    	double start=System.nanoTime();
     	txtResult.clear();
     	elenco.reset();
+    	double end=System.nanoTime();
+    	double time=end-start;
+    	String tempo=Double.toString(time);
+    	txtTempi.appendText(tempo+"\n");
     }
 
     @FXML

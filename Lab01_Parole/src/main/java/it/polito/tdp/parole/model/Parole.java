@@ -1,6 +1,7 @@
 package it.polito.tdp.parole.model;
 
 import java.util.List;
+
 import java.util.*;
 
 public class Parole {
@@ -17,7 +18,7 @@ public class Parole {
 	
 	public List<String> getElenco() {
 		LinkedList<String> paroleOrdinate=new LinkedList<String>(parole);
-		Collections.sort(paroleOrdinate);
+		Collections.sort(paroleOrdinate, new ComparatoreParoleOrdineAlfabetico());
 		return paroleOrdinate;
 	}
 	
