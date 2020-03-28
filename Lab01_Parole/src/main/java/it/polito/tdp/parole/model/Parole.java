@@ -22,6 +22,7 @@ public class Parole {
 		return paroleOrdinate;
 	}
 	
+	
 	public void reset() {
 		parole.clear();
 	}
